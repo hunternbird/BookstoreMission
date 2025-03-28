@@ -30,35 +30,35 @@ namespace Bookstore.API.Controllers
         //     });
         // }
         [HttpGet("AllBooks")]
-        public IActionResult GetBooks(int pageHowMany = 10, int pageNum = 1, string sortBy = "title", string sortOrder = "asc")
+        public IActionResult GetBooks(int pageHowMany = 10, int pageNum = 1, [FromQuery] List<string>? bookCategory = null)
         {
-            if (pageNum < 1) pageNum = 1; // Ensure valid page number
-
             var query = _bookContext.Books.AsQueryable();
-
-            // Apply sorting
-            switch (sortBy.ToLower())
+            if (bookCategory != null && bookCategory.Any())
             {
-                case "title":
-                    query = (sortOrder.ToLower() == "desc") ? query.OrderByDescending(b => b.Title) : query.OrderBy(b => b.Title);
-                    break;
-                default:
-                    query = query.OrderBy(b => b.Title); // Default sorting
-                    break;
+                query = query.Where(p => bookCategory.Contains(p.Category));
             }
-
-            var books = query
-                .Skip(Math.Max(0, (pageNum - 1) * pageHowMany))
+            
+            var totalNumBooks = query.Count();
+            var something = query
+                .Skip((pageNum - 1)*pageHowMany)
                 .Take(pageHowMany)
                 .ToList();
-
-            var totalNumBooks = _bookContext.Books.Count();
-
+            
             return Ok(new
             {
-                books = books ?? new List<Book>(), 
-                totalNumBooks = totalNumBooks
+                Books = something,
+                TotalNumBooks = totalNumBooks
             });
+        }
+        
+        [HttpGet("GetBookTypes")]
+        public IActionResult GetBookTypes()
+        {
+            var bookCategories = _bookContext.Books
+                .Select(p => p.Category)
+                .Distinct()
+                .ToList();
+            return Ok(bookCategories);
         }
     }
 }

@@ -256,3 +256,4 @@
 /Users/hunterbird/Desktop/Bookstore/backend/Bookstore.API/bin/Debug/net8.0/runtimes/win-arm64/native/e_sqlite3.dll
 /Users/hunterbird/Desktop/Bookstore/backend/Bookstore.API/bin/Debug/net8.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/hunterbird/Desktop/Bookstore/backend/Bookstore.API/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
+/Users/hunterbird/Desktop/Bookstore/backend/Bookstore.API/obj/Debug/net8.0/Bookstore.API.sourcelink.json
