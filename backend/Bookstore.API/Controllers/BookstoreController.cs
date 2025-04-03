@@ -36,6 +36,7 @@ namespace Bookstore.API.Controllers
             if (bookCategory != null && bookCategory.Any())
             {
                 query = query.Where(p => bookCategory.Contains(p.Category));
+                
             }
             
             var totalNumBooks = query.Count();
@@ -59,6 +60,51 @@ namespace Bookstore.API.Controllers
                 .Distinct()
                 .ToList();
             return Ok(bookCategories);
+        }
+        
+        [HttpPost("AddBook")]
+        public IActionResult AddProject([FromBody] Book newBook)
+        {
+            _bookContext.Books.Add(newBook);
+            _bookContext.SaveChanges();
+            return Ok(newBook);
+        }
+        
+        [HttpPut("UpdateBook/{bookID}")]
+        public IActionResult UpdateBook(int bookID, [FromBody] Book updatedBook)
+        {
+            var existingBook = _bookContext.Books.Find(bookID);
+
+            existingBook.Title = updatedBook.Title;
+            existingBook.Author = updatedBook.Author;
+            existingBook.Publisher = updatedBook.Publisher;
+            existingBook.ISBN = updatedBook.ISBN;
+            existingBook.Classification = updatedBook.Classification;
+            existingBook.Category = updatedBook.Category;
+            existingBook.PageCount = updatedBook.PageCount;
+            existingBook.Price = updatedBook.Price;
+            
+
+            _bookContext.Books.Update(existingBook);
+            _bookContext.SaveChanges();
+
+            return Ok(existingBook);
+        }
+        
+        [HttpDelete("DeleteBook/{bookID}")]
+        public IActionResult DeleteProject(int bookID)
+        {
+            var book = _bookContext.Books.Find(bookID);
+
+            if (book == null)
+            {
+                return NotFound(new {message = "Book not found"});
+            }
+
+            _bookContext.Books.Remove(book);
+            _bookContext.SaveChanges();
+
+            return NoContent();
         }
     }
 }

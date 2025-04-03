@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/f91cbf62-cf70-4b06-ab3e-5d561a0881b5/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/Bookstore-Bird-backend",
+  "appService.deploySubpath": "backend/Bookstore.API/publish"
+}

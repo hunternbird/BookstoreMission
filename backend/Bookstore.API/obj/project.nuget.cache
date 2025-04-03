@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "FI+5nouH2n0=",
+  "dgSpecHash": "UlhA5LA3eC0=",
   "success": true,
   "projectFilePath": "/Users/hunterbird/Desktop/Bookstore/backend/Bookstore.API/Bookstore.API.csproj",
   "expectedPackageFiles": [
@@ -144,10 +144,7 @@
     "/Users/hunterbird/.nuget/packages/system.text.json/7.0.3/system.text.json.7.0.3.nupkg.sha512",
     "/Users/hunterbird/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/Users/hunterbird/.nuget/packages/system.threading.tasks.dataflow/7.0.0/system.threading.tasks.dataflow.7.0.0.nupkg.sha512",
-    "/Users/hunterbird/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512",
-    "/Users/hunterbird/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
-    "/Users/hunterbird/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512",
-    "/Users/hunterbird/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.13/microsoft.netcore.app.host.osx-arm64.8.0.13.nupkg.sha512"
+    "/Users/hunterbird/.nuget/packages/system.windows.extensions/7.0.0/system.windows.extensions.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
