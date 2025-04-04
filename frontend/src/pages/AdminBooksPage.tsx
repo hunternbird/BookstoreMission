@@ -89,7 +89,6 @@ const AdminBooksPage = () => {
       <table className="table table-bordered table-striped">
         <thead className="table-dark">
           <tr>
-            <th>ID</th>
             <th>Title</th>
             <th>Author</th>
             <th>Publisher</th>
